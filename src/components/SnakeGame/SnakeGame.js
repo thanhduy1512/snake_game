@@ -111,6 +111,42 @@ const SnakeGame = () => {
                 {showTutorial && <TutorialModal onClose={() => setShowTutorial(false)} />}
             </div>
 
+            <div className="chat-container">
+
+                <form onSubmit={sendMessage} className="chat-input">
+                    <input
+                        type="text"
+                        placeholder="Enter your name"
+                        value={playerName}
+                        onChange={(e) => setPlayerName(e.target.value)}
+                    />
+                    <div className="message-input-container">
+                        <input
+                            type="text"
+                            value={newMessage}
+                            onChange={(e) => setNewMessage(e.target.value)}
+                            placeholder="Enter your message"
+                        />
+                        <button
+                            type="button"
+                            className="emoji-button"
+                            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                        >
+                            😊
+                        </button>
+                        {showEmojiPicker && (
+                            <div className="emoji-picker-container">
+                                <EmojiPicker
+                                    onEmojiClick={onEmojiClick}
+                                    width={300}
+                                    height={400}
+                                />
+                            </div>
+                        )}
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     );
 };
