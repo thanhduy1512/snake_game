@@ -112,7 +112,27 @@ const SnakeGame = () => {
             </div>
 
             <div className="chat-container">
-
+                <div className="chat-header">
+                    Game Chat
+                </div>
+                <div className="chat-messages"
+                    ref={(el) => {
+                        if (el) {
+                            el.scrollTop = 0; // Scroll to top thay vì scrollHeight
+                        }
+                    }}>
+                    {messages.map((msg) => (
+                        <div key={msg.id} className="message">
+                            <div className="message-header">
+                                <span className="message-name">{msg.name}</span>
+                                <span className="message-time">{formatTime(msg.timestamp)}</span>
+                            </div>
+                            <div className="message-content">
+                                <span className="message-text">{msg.text}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
                 <form onSubmit={sendMessage} className="chat-input">
                     <input
                         type="text"
