@@ -15,7 +15,7 @@ A modern implementation of the classic Snake Game built with React, featuring re
 
 ## 🚀 Live Demo
 
-[Play the game here](your-deployment-url)
+[Play the game here](https://snack.netlify.app/)
 
 ## 🛠️ Technologies Used
 
@@ -39,7 +39,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/snake-game.git
+git clone https://github.com/thanhduy1512/snake_game.git
 ```
 
 ```bash
