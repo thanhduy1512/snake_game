@@ -1,8 +1,12 @@
-.App {
-  text-align: center;
+.audio-button {
+  padding: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.2s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.audio-button:hover {
+  transform: scale(1.1);
 }
