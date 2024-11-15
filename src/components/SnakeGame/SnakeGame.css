@@ -1,0 +1,461 @@
+.game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-board {
+  position: relative;
+  background: #808080;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background-image: linear-gradient(#666 1px, transparent 1px),
+    linear-gradient(90deg, #666 1px, transparent 1px);
+  background-size: 20px 20px; /* Kích thước mỗi ô vuông */
+}
+
+.snake-segment {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #50fa7b;
+  border: 1px solid #45a049;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(80, 250, 123, 0.3);
+  transition: all 0.1s ease;
+}
+
+.food {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.score {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(40, 42, 54, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-over button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.game-over button:hover {
+  background-color: #45a049;
+}
+
+.score-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.score-info p {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.game-wrapper {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.scores-panel {
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.score-info {
+  margin-bottom: 20px;
+}
+
+.score-info p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.high-scores h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.high-scores ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.high-scores li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.player-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.player-score {
+  color: #ffd700;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.chat-container {
+  width: 320px;
+  height: 600px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 15px 20px;
+  background: #2c3e50;
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ffffff;
+}
+
+.message {
+  padding: 10px 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.message-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9em;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.message-time {
+  color: #718096;
+  font-size: 0.8em;
+}
+
+.message-content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.message-text {
+  color: #4a5568;
+  line-height: 1.4;
+  word-break: break-word;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-input {
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-input input {
+  padding: 10px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  background: white;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.chat-input button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.chat-input button:hover {
+  background-color: #45a049;
+}
+
+/* Custom scrollbar */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.message-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.emoji-button {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.emoji-button:hover {
+  opacity: 1;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Điều chỉnh lại input để không đè lên nút emoji */
+.message-input-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+/* Thêm animation cho emoji picker */
+.emoji-picker-container {
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Đảm bảo emoji picker không bị che khuất */
+.chat-container {
+  position: relative;
+}
+
+/* Tùy chỉnh màu nền cho emoji picker phù hợp với theme */
+.emoji-picker-react {
+  background-color: white !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Tùy chỉnh scrollbar cho emoji picker */
+.emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.game-start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.game-start button {
+  padding: 15px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.game-start button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-start button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-controls {
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.pause-button {
+  padding: 8px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pause-button:hover {
+  transform: scale(1.1);
+}
+
+.pause-button:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.game-paused {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.game-paused h2 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tutorial-button {
+  padding: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.tutorial-button:hover {
+  transform: scale(1.1);
+}
