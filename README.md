@@ -1,71 +1,143 @@
-# Getting Started with Create React App
+# 🐍 React Snake Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern implementation of the classic Snake Game built with React, featuring real-time multiplayer chat, high scores, and background music.
 
-## Available Scripts
+## 🎮 Game Features
 
-In the project directory, you can run:
+- Classic snake gameplay with modern graphics
+- Real-time multiplayer chat system
+- Global high score leaderboard
+- Background music and sound effects
+- Responsive design for desktop and mobile
+- Tutorial for new players
+- Pause/Resume functionality
+- Device fingerprinting for player identification
 
-### `npm start`
+## 🚀 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Play the game here](your-deployment-url)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- React.js
+- Firebase (Realtime Database)
+- FingerprintJS
+- Web Audio API
+- CSS Modules
+- React Icons
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📋 Prerequisites
 
-### `npm run build`
+Before you begin, ensure you have the following installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
+- Git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+```bash
+git clone https://github.com/your-username/snake-game.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd snake-game
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Create a `.env` file in the root directory and add your Firebase configuration:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+```
 
-## Learn More
+5. Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎯 How to Play
 
-### Code Splitting
+1. **Starting the Game**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   - Press any arrow key to start
+   - Use arrow keys to control the snake's direction
+   - Mobile users can use the on-screen controls
 
-### Analyzing the Bundle Size
+2. **Objective**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   - Eat the food (red dots) to grow longer
+   - Avoid hitting the walls and your own tail
+   - Try to achieve the highest score possible
 
-### Making a Progressive Web App
+3. **Controls**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   - ⬆️ Up Arrow: Move Up
+   - ⬇️ Down Arrow: Move Down
+   - ⬅️ Left Arrow: Move Left
+   - ➡️ Right Arrow: Move Right
+   - Space Bar: Pause/Resume
+   - M: Mute/Unmute Audio
 
-### Advanced Configuration
+4. **Scoring**
+   - Each food item: +1 point
+   - Special food items: +5 points
+   - High scores are automatically saved
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎨 Customization
 
-### Deployment
+You can customize various game aspects by modifying the constants in `src/config/gameConfig.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Snake speed
+- Grid size
+- Colors
+- Initial snake length
+- Special food frequency
 
-### `npm run build` fails to minify
+## 📱 Mobile Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# snake_game
+The game is fully responsive and supports:
+
+- Touch controls
+- Portrait and landscape orientations
+- Various screen sizes
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 🐛 Known Issues
+
+- Audio may not autoplay on some browsers due to browser policies
+- Mobile performance may vary on older devices
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## 👏 Acknowledgments
+
+- Original Snake Game concept by Nokia
+- [React Documentation](https://reactjs.org/)
+- [Firebase Documentation](https://firebase.google.com/docs)
+- All contributors and testers
+
+## 📧 Contact
+
+Your Name - [lhquan1998@gmail.com](mailto:lhquan1998@gmail.com)
+
+Project Link: [https://github.com/thanhduy1512/snake_game](https://github.com/thanhduy1512/snake_game)
