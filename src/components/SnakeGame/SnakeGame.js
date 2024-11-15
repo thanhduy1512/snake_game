@@ -7,6 +7,12 @@ import EmojiPicker from 'emoji-picker-react';
 import TutorialModal from '../TutorialModal/TutorialModal';
 import AudioControl from '../AudioControl/AudioControl';
 
+// Add new constants for food types
+const FOOD_TYPES = {
+    NORMAL: { points: 1, symbol: '🍎' },
+    BONUS: { points: 3, symbol: '🍕' },
+    SPECIAL: { points: 5, symbol: '🌟' }
+};
 
 const GRID_SIZE = 20;
 const CELL_SIZE = 20;
@@ -102,6 +108,7 @@ const SnakeGame = () => {
                         <button onClick={resetGame}>Play Again</button>
                     </div>
                 )}
+                {showTutorial && <TutorialModal onClose={() => setShowTutorial(false)} />}
             </div>
 
         </div>
