@@ -2,14 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCBCzVocjN39-ww7TdwMTTrDonuprSbE4s",
-    authDomain: "social-login-2da5f.firebaseapp.com",
-    projectId: "social-login-2da5f",
-    storageBucket: "social-login-2da5f.firebasestorage.app",
-    messagingSenderId: "634891082790",
-    appId: "1:634891082790:web:76aa524fcb5c39f7021ae7",
-    measurementId: "G-NJCZMP39Y8"
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId,
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app); 
+export const db = getFirestore(app);
