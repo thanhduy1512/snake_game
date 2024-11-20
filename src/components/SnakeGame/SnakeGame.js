@@ -145,6 +145,11 @@ const SnakeGame = () => {
   // Xử lý phím
   const handleKeyPress = useCallback(
     (event) => {
+      // Check if focus is on an input element
+      if (document.activeElement.tagName === 'INPUT') {
+        return;
+      }
+
       if (event.code === 'Space') {
         event.preventDefault(); // Prevent page scrolling
         if (!isGameStarted) {
