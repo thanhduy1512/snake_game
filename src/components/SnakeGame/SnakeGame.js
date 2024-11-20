@@ -198,14 +198,30 @@ const SnakeGame = () => {
   };
 
   useEffect(() => {
-    const gameLoop = setInterval(moveSnake, SPEED);
+    let animationFrameId;
+    let lastMoveTime = Date.now();
+
+    const gameLoop = () => {
+      const currentTime = Date.now();
+
+      if (!isGameOver && isGameStarted && !isPaused) {
+        if (currentTime - lastMoveTime >= SPEED) {
+          moveSnake();
+          lastMoveTime = currentTime;
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(gameLoop);
+    };
+
     window.addEventListener('keydown', handleKeyPress);
+    animationFrameId = requestAnimationFrame(gameLoop);
 
     return () => {
-      clearInterval(gameLoop);
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [moveSnake, handleKeyPress]);
+  }, [moveSnake, handleKeyPress, isGameOver, isGameStarted, isPaused]);
 
   useEffect(() => {
     const highScoresRef = collection(db, 'highscores');
@@ -399,33 +415,7 @@ const SnakeGame = () => {
             <h2>PAUSED</h2>
           </div>
         )}
-        <div
-          className='game-board'
-          style={{
-            width: GRID_SIZE * CELL_SIZE,
-            height: GRID_SIZE * CELL_SIZE,
-          }}
-        >
-          {snake.map((segment, index) => (
-            <div
-              key={index}
-              className='snake-segment'
-              style={{
-                left: segment.x * CELL_SIZE,
-                top: segment.y * CELL_SIZE,
-              }}
-            />
-          ))}
-          <div
-            className='food'
-            style={{
-              left: food.x * CELL_SIZE,
-              top: food.y * CELL_SIZE,
-            }}
-          >
-            {food.type.symbol}
-          </div>
-        </div>
+
         <GameBoard
           snake={snake}
           food={food}

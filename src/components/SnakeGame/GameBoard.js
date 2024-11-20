@@ -26,9 +26,21 @@ const GameBoard = ({ snake, food, gridSize, cellSize }) => {
     }
 
     // Draw the snake
-    ctx.fillStyle = '#50fa7b';
+    ctx.fillStyle = '#50fa7b'; // Snake body color
+    ctx.strokeStyle = '#45a049'; // Border color
+    ctx.lineWidth = 2; // Border thickness
+
     snake.forEach((segment) => {
+      // Draw the segment (body)
       ctx.fillRect(
+        segment.x * cellSize,
+        segment.y * cellSize,
+        cellSize,
+        cellSize
+      );
+
+      // Draw the border
+      ctx.strokeRect(
         segment.x * cellSize,
         segment.y * cellSize,
         cellSize,
